@@ -4,8 +4,8 @@ By Adam Muenz
 Last Updated: 12/16/2022
 '''
 
-# TODO: Read descriptions from a json file and send them to the encounter
-# TODO: Encounters x9 (needs to be a list (or similar) and must be removed once selected)
+# TODO: Read descriptions from a json file and send them to the encounter... Maybe not. See if have time
+# TODO: Encounters x8 (needs to be a list (or similar) and must be removed once selected)
 
 class Encounter:
     '''
@@ -21,4 +21,33 @@ class Encounter:
         self.failure = failure
         self.description = description
 
-        # function to test if given response is a success or failure: takes in input. returns boolean
+    # function to test if given response is a success or failure: takes in input. returns boolean
+    def check_success(self, player_choice: str) -> bool:
+        '''
+        Checks if the players input was correct
+
+        Parameters:
+        player_choice (str): input from player tested against self.success
+
+        Return:
+        True: if player_choice == self.success
+        False: if player_choice == self.failure
+        '''
+        while True:
+            if player_choice.lower() == self.success.lower():
+                return True
+            if player_choice.lower() == self.failure.lower():
+                return False
+            print("Please choose either 1 or 2")
+
+# create list
+encounters = []
+
+# append objects to list
+encounters.append(Encounter(
+    "Dodge forward", "Dodge backward",
+    """Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt
+    ut labore et dolore magna aliqua."""
+))
