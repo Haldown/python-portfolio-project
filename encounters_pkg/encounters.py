@@ -29,7 +29,7 @@ class Encounter:
         Checks if the players input was correct
 
         Parameters:
-        player_choice (str): input from player tested against self.success
+        player_choice (str): input from player
 
         Return:
         True: if player_choice == self.success
@@ -39,86 +39,81 @@ class Encounter:
             return True
         if player_choice.lower() == self.failure.lower():
             return False
-        print("Do you not know how to type?")
 
 # create list
 ENCOUNTERS = []
 
 # append objects to list
-# TODO: 8 of these minimum in list
 ENCOUNTERS.append(Encounter(
-    "Dodge forward S",
-    "Dodge backward F",
-    """Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt
-    ut labore et dolore magna aliqua.""",
-    """This is what id say to you if you got a success""",
-    """And this is why you failed"""
+    "Continue Forward",
+    "Attack!",
+    """|                    You find yourself in a small meadow. As far as you can tell it is empty.                   |
+|---------------------------------------------------------------------------------------------------------------|\n""",
+    "|                        After taking a moment to enjoy the calm you continue on your journey.                  |",
+    """|   You swing your weapon at the open air, then again, and again! If there were music playing this could be a   |
+|                 cool montage. Unfortunatly for you there is no music so you just look silly.                  |"""
 ))
 ENCOUNTERS.append(Encounter(
-    "Stand Still S",
-    "Run Away F",
-    """This is a second option to test random grab and removal of list items.""",
-    "You did it bro",
-    "Big oof"
+    "Stand Still",
+    "Run Away",
+    """|    As you walk through a long gorge you feel the ground shake. Oh no! A rockalanche is coming right at you.   |
+|---------------------------------------------------------------------------------------------------------------|\n""",
+    "|           Somehow standing still was the right choice. What a relief. You continue on your journey.           |",
+    """|              You flee from the falling boulders. Luckily you avoided the large rocks.                         |
+|   Unluckily you were peppered by a plethora of pesky pebbles. You continue on your journey cut and bruised.   |"""
 ))
 ENCOUNTERS.append(Encounter(
-    "Success",
-    "Failure",
-    "This is the description of 3",
-    "You did it",
-    "You didnt do it"
+    "Refuse",
+    "Give him all your money (about $3.50)",
+    """|                                A bandit jumps you and demands all your money!                                 |
+|---------------------------------------------------------------------------------------------------------------|\n""",
+    """|   It was at this point you relized that the bandit was about eight stories tall and was a crustacean    |
+|             from the Paleolithic Era. You continue on your way wondering why he needed $3.50                  |""",
+    """| You give the bandit your money. He thanks you and then you realize that he was actualy an eight stories tall  |
+|  crustacean from the Paleolithic Era. Now that he got your money you can count on him coming back for more.   |"""
 ))
 ENCOUNTERS.append(Encounter(
-    "Success",
-    "Failure",
-    "This is the description of 4",
-    "You did it",
-    "You didnt do it"
+    "Stop and help",
+    "Continue on your way",
+    """|                 You encounter an old woman attempting to place a wheel on her carriage.                       |
+|---------------------------------------------------------------------------------------------------------------|\n""",
+    "|               After helping her repair her carriage she cooks you a hearty meal as thanks.                    |",
+    "|      The rest of the day you feel bad for not helping. You cant sleep all night due to your conscience.       |"
 ))
 ENCOUNTERS.append(Encounter(
-    "Success",
-    "Failure",
-    "This is the description of 5",
-    "You did it",
-    "You didnt do it"
+    "Continue on through the night",
+    "Join the party",
+    """|       As the sun is going down you come upon a group of merchants eating and drinking around a fire.          |
+|---------------------------------------------------------------------------------------------------------------|\n""",
+    "|                  With great resolve you continue on through the night making great time.                      |",
+    "|         You eat and drink merily with the strangers. To bad you wake up to an incision over your kidney.      |"
 ))
 ENCOUNTERS.append(Encounter(
-    "Success",
-    "Failure",
-    "This is the description of 6",
-    "You did it",
-    "You didnt do it"
+    "Sidestep",
+    "Run directly away from it.",
+    """| You are walking through the forest when you hear a loud snap behind you. A tree is falling right towards you! |
+|---------------------------------------------------------------------------------------------------------------|\n""",
+    "|                                            Wow. That was easy.                                                |",
+    "|       Do you think you're in an action movie? Because you're not. The tree falls and strikes your head        |"
 ))
 ENCOUNTERS.append(Encounter(
-    "Success",
-    "Failure",
-    "This is the description of 7",
-    "You did it",
-    "You didnt do it"
+    "Walk across",
+    "Find a ford",
+    """|                               You come to a river. It doesn't look too deep.                                  |
+|---------------------------------------------------------------------------------------------------------------|\n""",
+    "|                  The water was cool and refreshing. Luckly there wern't any river beasts                      |",
+    "|                Hows a car going to help? Ha I'm only joking. You walk for a few miles and find one.           |"
 ))
 ENCOUNTERS.append(Encounter(
-    "Success",
-    "Failure",
-    "This is the description of 8",
-    "You did it",
-    "You didnt do it"
+    "Use your weapon",
+    "Use karate",
+    """|                               A group of goblins suround you ready for battle                                 |
+|---------------------------------------------------------------------------------------------------------------|\n""",
+    "|            You swing your weapon in an impressive display of prowess. The goblins run away in fear              |",
+    """|        You attack the goblins with karate! You quickly remember that you dont know karate.                    |
+|                               The goblins laugh at you until you wonder off in shame.                         |"""
 ))
-ENCOUNTERS.append(Encounter(
-    "Success",
-    "Failure",
-    "This is the description of 9",
-    "You did it",
-    "You didnt do it"
-))
-ENCOUNTERS.append(Encounter(
-    "Success",
-    "Failure",
-    "This is the description of 10",
-    "You did it",
-    "You didnt do it"
-))
+
 
 def next_encounter() -> Encounter:
     '''
