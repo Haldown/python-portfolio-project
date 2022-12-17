@@ -3,23 +3,70 @@ The Search for Candor
 By Adam Muenz
 Last Updated: 12/16/2022
 '''
-# TODO: imports from encouters.py need check_success and encounters List
-from encounters_pkg.encounters import Encounter, encounters
 
+from random import choice
+import sys
+from encounters_pkg.encounters import next_encounter
 
-# NOTE: CONCEPT! A skill challenge to get back to Candor. 6 wins before 3 losses (this means I need at least 9 encounters)
-# NOTE: Encounters should be class. Compare inputed value with "correct" value to see if the user passes or fails
-# NOTE: Don't display track record
-# NOTE: Keep track of your wins and losses (ie sprained ankel, broken arm) then at the end: you lost because of. You won because of.
+# NOTE: CONCEPT! A skill challenge to get back to Candor. 6 wins before 3 losses
+# NOTE: Track of your losses (ie sprained ankel, broken arm) then at the end: you lost because of.
+# TODO: Write report on project
 
-# TODO: Pseudocode
 
 def play_game():
     '''
     Core game functionality
     '''
-    pass
-# TODO: Initialize successes and failures to 0
-# TODO: Home Page: Short explanation for the game and how its played
+    successes = failures = 0
+    # if I have time add an option here as the start of the game
+        # probably before play_game()
+    while True:
+        encounter = next_encounter()
+        print(encounter.description)
+        # randomize if the correct choice is option 1 or 2
+            # currently incorrectly typed responses count as failures
+        if choice((True, False)):
+            player_choice = input(f'Would you like to 1. {encounter.success} or 2. {encounter.failure}: ')
+            if encounter.check_success(player_choice) or player_choice == "1":
+                print(encounter.success_str)
+                successes += 1
+            else:
+                print(encounter.failure_str)
+                failures += 1
+        else:
+            player_choice = input(f'Would you like to 1. {encounter.failure} or 2. {encounter.success}: ')
+            if encounter.check_success(player_choice) or player_choice == "2":
+                print(encounter.success_str)
+                successes += 1
+            else:
+                print(encounter.failure_str)
+                failures += 1
+        # check if player has won or lost the game
+        if successes == 6:
+            print("Congradulations! After a long and arguous journey you have found your way to Candor!")
+            if input("Would you like to get lost again? Y/N: ").lower() == "y":
+                play_game()
+            else:
+                print("Enjoy your time in the city.")
+                sys.exit()
+        elif failures == 3:
+            print("Oh no! The challenges of the journey were too much for you. You are dead.")
+            if input("Have you considered resurrection? Y/N: ") == "y":
+                play_game()
+            else:
+                print("Thats ok. If everyone were a winner it wouldn\'t be so special.")
+                sys.exit()
+        print(f'You have {successes} successes and {failures} failures.')
 
+# TODO: Home Page: Short explanation for the game and how its played
+print("_"*113)
+print("""|><><><><><><><><><><><><><><><><><><>|  Welcome to The Search for Candor |<><><><><><><><><><><><><><><><><><><|
+|---------------------------------------------------------------------------------------------------------------|
+|    You are an adventurer who is lost. Your goal is to find Candor; The greatest city on this or any world.    |
+| Unfortunatly for you this is a dangerous part of the world. Many obsticals will come between you and your     |
+|       goal. Will you be able to overcome them? Or will you succumb to the dangers that befall you?            |
+|                               P.S. You need to succeed 6 times befor you fail 3 times!                        |
+|---------------------------------------------------------------------------------------------------------------|\n""")
 # TODO: First choice. (Basicly play game) 2 options. forward and certain death.
+
+play_game()
