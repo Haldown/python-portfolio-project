@@ -21,7 +21,6 @@ class Encounter:
         self.failure = failure
         self.description = description
 
-    # function to test if given response is a success or failure: takes in input. returns boolean
     def check_success(self, player_choice: str) -> bool:
         '''
         Checks if the players input was correct
@@ -50,4 +49,8 @@ encounters.append(Encounter(
     consectetur adipiscing elit,
     sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua."""
+))
+encounters.append(Encounter(
+    "Stand Still", "Run Away",
+    """This is a second option to test random grab and removal of list items."""
 ))
