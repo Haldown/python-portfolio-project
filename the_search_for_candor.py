@@ -4,7 +4,7 @@ By Adam Muenz
 Last Updated: 12/16/2022
 '''
 # TODO: imports from encouters.py need check_success and encounters List
-# from encounters_pkg.encounters.py import
+from encounters_pkg.encounters import Encounter, encounters
 
 
 # NOTE: CONCEPT! A skill challenge to get back to Candor. 6 wins before 3 losses (this means I need at least 9 encounters)
